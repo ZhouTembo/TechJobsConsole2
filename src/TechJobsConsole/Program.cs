@@ -7,7 +7,7 @@ namespace TechJobsConsole
 {
     class Program
     {
-        static void Main(string[] args)
+        static void  Main(string[] args)
         {
             // Create two Dictionary vars to hold info for menu and data
 
@@ -67,6 +67,10 @@ namespace TechJobsConsole
                     {
                         searchResults = JobData.FindByValue(searchTerm);
                         PrintJobs(searchResults);
+                        if (searchResults.Count== 0)
+                        {
+                            Console.WriteLine("\nSearch term not found");
+                        }
                     }
                     else
                     {
@@ -121,7 +125,7 @@ namespace TechJobsConsole
 
         private static void PrintJobs(List<Dictionary<string, string>> someJobs)
         {
-            
+             
             
                 foreach (var row in someJobs)
                 {
